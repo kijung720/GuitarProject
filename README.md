@@ -46,20 +46,20 @@ four consecutive times, I trigged the sound, and vise versa for going up.
 Only triggering the sound when the value goes down or up consecutively was very
 important since this prevented false positive triggers.
 
-###Button detection
+### Button detection
 Guitar knows what chord to play with buttons that trigger gpio pins.
 In guitar.c, I detect which button is pressed and return the pressed button value.
-Only one of the buttons from C~A can be pressed, and one of m or 7 can be pressed.
-Player can generate m and 7 chords by pressing one of C~A and one of m and 7.
+Only one of the buttons from C to A can be pressed, and one of m or 7 can be pressed.
+Player can generate m and 7 chords by pressing one of C to A and one of m and 7.
 
-###Playing sound
+### Playing sound
 I use serial port communication between Pi and computer to trigger a recorded sound.
 When the button is pressed and the strumming is detected, I send three digit value
 that contains information about pressed button(s) and strum motion.
 I then read the value from python code, find the correct sound and play it through
 VLC media player.
 
-##Challenges
+## Challenges
 Biggest challenge was reading the accelerometer to get the right strum motion.
 First, accelerometer was behaving different from what I expected. I was expecting
 to see one number, the acceleration that I learned in physics and the acceleration
@@ -80,5 +80,5 @@ trigger the sound.
 Lastly, unexpected challenge came from soldering and making the guitar. I had to fit in
 nine buttons to a box smaller than a hand. This required many precise soldering.
 
-##Acknowledgement
+## Acknowledgement
 My amazing TA Will Crichton help me write the python script for playing audio.
