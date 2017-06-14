@@ -8,24 +8,20 @@
 #include <math.h>
 
 void main() {
-//all the initializations
+
     timer_init();
     printf_init();
     i2c_init();
     lsm6ds33_init();
     guitar_init();
 
-//  printf("whoami=%x\n", lsm6ds33_get_whoami());
-
-//calibrate accelerometer
-  
+//calibrate accelerometer  
     short startZ = 0;
     short x, y, z;
         
     for(int i = 0; i < 10; i++) {
         lsm6ds33_read_accelerometer(&x, &y, &z);
         startZ += z/16;
-//        printf("up accel= (%dmg, %dmg, %dmg)\n", x/16, y/16, z/16);
         delay_us(300000);
     }
     
@@ -48,32 +44,27 @@ void main() {
         lsm6ds33_read_accelerometer(&x, &y, &z);
         cumm += z/16;
         cnt++;
-//        printf("\n(%dmg) ----- Cumm = %dmg ----- Cnt = %d\n", z/16, cumm, cnt);
 
+        //make average of ten values
         if(cnt == 10) {
             lastTenValues = currTenValues;
             currTenValues = cumm / 10;
-//            printf("Last Values: %dmg ----- Curr Values: %dmg \n", lastTenValues, currTenValues);
       
+            //compare the two averages, increment down or up. If not consecutive, subract one
             if(lastTenValues - currTenValues >= 100) {
-//                printf("DOWNDOWN\n");
                 down++;                
                 if(up!=0) up--; 
-//                printf("Down: %d ----- Up: %d\n", down, up);
             }             
             else if(currTenValues - lastTenValues >= 100) {
-//                printf("UPUP\n");
                 up++;                
-                if(down!=0)  down--;
-                
-//                printf("Down: %d ----- Up: %d\n", down, up);            
+                if(down!=0)  down--;                        
             }            
             cnt = 0;
             cumm = 0;
         }
         
+        //If more than 4 downs / ups are detected, play down / up
         if(down >= 4) {
-//          printf("DDDDDDDDDDDDDDDDDDDD\n");
           down = 0;
           if(isButtonPressed()) {
               int button = getPressedButton();
@@ -82,7 +73,6 @@ void main() {
           }
       }
         else if (up >= 4) {
-//          printf("UUUUUUUUUUUUUUUUUUUU\n");
           up = 0;
           if(isButtonPressed()) {
               int button = getPressedButton();
