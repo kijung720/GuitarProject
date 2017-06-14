@@ -16,17 +16,15 @@ have different sounds for up strum and down strum.
    ```
 4. Hold onto your peak (it should be flat) until you hear the ding-dong sound
 5. Seven white buttons represent chords from C to A :
-   ______________________
-   |    D   F   A        |
-   |                B    |
-   |    C   E   G        |
-   ----------------------
+
+       D   F   A        
+                   B    
+       C   E   G        
+
    Two red buttons represent minor and 7:
-   ______________________
-   |     m   7           |
-   |                     |
-   |                     |
-   ----------------------
+
+       m   7           
+
 6. Press and hold the button and strum down or up.
 7. To play m or 7, press and hold the desired chord button and m or 7.
 8. Enjoy :)
