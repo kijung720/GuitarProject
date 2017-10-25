@@ -2,7 +2,7 @@
 This is a final project for Stanford's CS107E: Computer Systems From the Ground Up.
 Using Raspberry Pi and MinIMU-5 v9 accelerometer, I made an air guitar,
 which the player strums the guitar by using an accelerometer as a guitar
-peak, and presses set of buttons to generate certain chords.
+pick, and presses set of buttons to generate certain chords.
 Guitar can play 42 different strumming sounds; three different
 chords (original, minor, 7) for each note from C~A, and each of these sounds
 have different sounds for up strum and down strum.
@@ -10,11 +10,11 @@ have different sounds for up strum and down strum.
 ## How To Play
 0. Make the physical air guitar! (Ask me if you really want to make one)
 1. Install the codes + mp3 files
-2. Hold the peak with your thumb and pointer finger. 
+2. Hold the pick with your thumb and pointer finger. 
 3. ```
    $ make install && python play.py
    ```
-4. Hold onto your peak (it should be flat) until you hear the ding-dong sound
+4. Hold onto your pick (it should be flat) until you hear the ding-dong sound
 5. Seven white buttons represent chords from C to A :
 
        D   F   A        
